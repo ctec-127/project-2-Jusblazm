@@ -34,9 +34,10 @@ if (isset($_GET["filter"])) {
         $sql = "SELECT * FROM $db_table ORDER BY email ASC";
     }
     $stmt = $db->prepare($sql);
-    $stmt->execute(["orderby" => $orderby]);
+    $stmt->execute();
+    //$stmt->execute(["orderby" => $orderby]);
 } else {
-    $sql = "SELECT * FROM $db_table";
+    $sql = "SELECT * FROM $db_table ORDER BY data_created DESC";
     $stmt = $db->prepare($sql);
     $stmt->execute();
 }
