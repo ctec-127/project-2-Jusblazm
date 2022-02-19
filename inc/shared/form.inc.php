@@ -34,19 +34,21 @@ if (basename($_SERVER['PHP_SELF']) == 'create-record.php') {
     <label class="col-form-label" for="phone">Phone</label>
     <input class="form-control" type="text" id="phone" name="phone" value="<?= isset($phone) ? $phone : null ?>">
     <br>
+    <!-- sticky dropdown list -->
     <label class="col-form-label" for="degree">Degree</label>
     <select class="form-control" id="degree" name="degree">
         <option value="" <?php if (isset($degree) && ($degree == "")) echo 'selected'; ?>>No Degree</option>
-        <option value="cbas" <?php if (isset($degree) && ($degree == "cbas")) echo 'selected'; ?>>CBAS - Bachelor of Applied Science in Cybersecurity</option>
-        <option value="aas" <?php if (isset($degree) && ($degree == "aas")) echo 'selected'; ?>>AAS - Associate in Applied Sciences</option>
-        <option value="aat" <?php if (isset($degree) && ($degree == "aat")) echo 'selected'; ?>>AAT - Associate in Applied Technology</option>
-        <option value="ast" <?php if (isset($degree) && ($degree == "ast")) echo 'selected'; ?>>AST - Associate of Science Transfer</option>
-        <option value="afa" <?php if (isset($degree) && ($degree == "afa")) echo 'selected'; ?>>AFA - Associate of Fine Arts</option>
+        <option value="CBAS" <?php if (isset($degree) && ($degree == "CBAS")) echo 'selected'; ?>>CBAS - Bachelor of Applied Science in Cybersecurity</option>
+        <option value="AAS" <?php if (isset($degree) && ($degree == "AAS")) echo 'selected'; ?>>AAS - Associate in Applied Sciences</option>
+        <option value="AAT" <?php if (isset($degree) && ($degree == "AAT")) echo 'selected'; ?>>AAT - Associate in Applied Technology</option>
+        <option value="AST" <?php if (isset($degree) && ($degree == "AST")) echo 'selected'; ?>>AST - Associate of Science Transfer</option>
+        <option value="AFA" <?php if (isset($degree) && ($degree == "AFA")) echo 'selected'; ?>>AFA - Associate of Fine Arts</option>
     </select>
     <br>
     <label class="col-form-label" for="gpa">GPA</label>
     <input class="form-control" type="number" step="0.01" min="0" max="4" id="gpa" name="gpa" value="<?= isset($gpa) ? $gpa : null ?>">
     <br>
+    <!-- sticky radio button -->
     <label class="col-form-label" for="faid">Financial Aid</label>
     <br>
     <input type="radio" id="faidyes" name="faid" value="1" <?php if (isset($faid) && ($faid == "1")) echo 'checked'; ?>>
@@ -56,6 +58,7 @@ if (basename($_SERVER['PHP_SELF']) == 'create-record.php') {
     <label for="faidno">No</label>
     <br>
     <br>
+    <!-- change cancel to be a button like submit -->
     <a class="btn btn-primary" href="display-records.php">Cancel</a>&nbsp;&nbsp;
     <button class="btn btn-primary" type="submit"><?= $button_label ?></button>
 </form>

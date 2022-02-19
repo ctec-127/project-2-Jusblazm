@@ -33,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $phone = $_POST["phone"];
     }
+    // add additional fields
     if (empty($_POST["faid"])) {
         $faid = 0;
     } else {

@@ -32,6 +32,12 @@ if (isset($_GET["filter"])) {
         $sql = "SELECT * FROM $db_table ORDER BY phone ASC";
     } elseif ($orderby == "email") {
         $sql = "SELECT * FROM $db_table ORDER BY email ASC";
+    } elseif ($orderby == "degree_program") {
+        $sql = "SELECT * FROM $db_table ORDER BY degree_program ASC";
+    } elseif ($orderby == "gpa") {
+        $sql = "SELECT * FROM $db_table ORDER BY gpa ASC";
+    } elseif ($orderby == "financial_aid") {
+        $sql = "SELECT * FROM $db_table ORDER BY financial_aid ASC";
     }
     $stmt = $db->prepare($sql);
     $stmt->execute();
