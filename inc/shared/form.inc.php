@@ -37,7 +37,7 @@ if (basename($_SERVER['PHP_SELF']) == 'create-record.php') {
     <!-- sticky dropdown list -->
     <label class="col-form-label" for="degree">Degree</label>
     <select class="form-control" id="degree" name="degree">
-        <option value="" <?php if (isset($degree) && ($degree == "")) echo 'selected'; ?>>No Degree</option>
+        <option value="Undeclared" <?php if (isset($degree) && ($degree == "Undeclared")) echo 'selected'; ?>>Undeclared</option>
         <option value="CBAS" <?php if (isset($degree) && ($degree == "CBAS")) echo 'selected'; ?>>CBAS - Bachelor of Applied Science in Cybersecurity</option>
         <option value="AAS" <?php if (isset($degree) && ($degree == "AAS")) echo 'selected'; ?>>AAS - Associate in Applied Sciences</option>
         <option value="AAT" <?php if (isset($degree) && ($degree == "AAT")) echo 'selected'; ?>>AAT - Associate in Applied Technology</option>
@@ -54,11 +54,11 @@ if (basename($_SERVER['PHP_SELF']) == 'create-record.php') {
     <input type="radio" id="faidyes" name="faid" value="1" <?php if (isset($faid) && ($faid == "1")) echo 'checked'; ?>>
     <label for="faidyes">Yes</label>
     <br>
-    <input type="radio" id="faidno" name="faid" value="0" <?php if (isset($faid) && ($faid == "0")) echo 'checked'; ?>>
+    <input type="radio" id="faidno" name="faid" value="0" <?php if (!isset($degree)) echo 'checked'; ?> <?php if (isset($faid) && ($faid == "0")) echo 'checked'; ?>>
     <label for="faidno">No</label>
     <br>
     <br>
     <!-- change cancel to be a button like submit -->
-    <a class="btn btn-primary" href="display-records.php">Cancel</a>&nbsp;&nbsp;
+    <a href="display-records.php">Cancel</a>&nbsp;&nbsp;
     <button class="btn btn-primary" type="submit"><?= $button_label ?></button>
 </form>
