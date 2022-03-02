@@ -49,7 +49,7 @@ if (basename($_SERVER['PHP_SELF']) == 'create-record.php') {
     <input class="form-control" type="number" step="0.01" min="0" max="4" id="gpa" name="gpa" value="<?= isset($gpa) ? $gpa : null ?>">
     <br>
     <!-- sticky radio button -->
-    <label class="col-form-label" for="faid">Financial Aid</label>
+    <label class="col-form-label">Financial Aid</label>
     <br>
     <input type="radio" id="faidyes" name="faid" value="1" <?php if (isset($faid) && ($faid == "1")) echo 'checked'; ?>>
     <label for="faidyes">Yes</label>
@@ -61,4 +61,5 @@ if (basename($_SERVER['PHP_SELF']) == 'create-record.php') {
     <!-- change cancel to be a button like submit -->
     <a href="display-records.php">Cancel</a>&nbsp;&nbsp;
     <button class="btn btn-primary" type="submit"><?= $button_label ?></button>
+    <input type="hidden" name="id" value="<?= isset($id) ? $id : null ?>">
 </form>

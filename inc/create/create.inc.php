@@ -1,4 +1,4 @@
-<?php // Filename: connect.inc.php
+<?php // Filename: create.inc.php
 
 require_once __DIR__ . "/../db/db_connect.inc.php";
 require_once __DIR__ . "/../functions/functions.inc.php";
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<div class="alert alert-danger" role="alert">
             I am sorry, but I could not save that record for you.</div>';
         } else {
-            header("Location: display-records.php?message=The record for $first has been created.");
+            header("Location: display-records.php?message=The record for has been created for <ul><li>Student: $first $last</li><li>Student ID: $student_id</li></ul>.");
         }
     } else {
         display_error_bucket($error_bucket);
