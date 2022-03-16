@@ -58,9 +58,9 @@ if (basename($_SERVER['PHP_SELF']) == 'create-record.php') {
     <input type="radio" id="faidno" name="faid" value="0" <?php if (!isset($faid)) echo 'checked'; ?> <?php if (isset($faid) && ($faid == "0")) echo 'checked'; ?>>
     <label for="faidno">No</label>
     <br>
-    <br>
     <label class="col-form-label" for="graduation">Graduation Date</label>
     <input class="form-control" type="date" id="graduation" name="graduation" value="<?= isset($graduation) ? $graduation : null ?>">
+    <br>
     <!-- change cancel to be a button like submit -->
     <a href="display-records.php">Cancel</a>&nbsp;&nbsp;
     <button class="btn btn-primary" type="submit"><?= $button_label ?></button>
