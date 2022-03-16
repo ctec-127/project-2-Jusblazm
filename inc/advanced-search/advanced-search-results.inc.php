@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         array_push($search_data, "gpa = {$_POST["gpa"]}");
     }
     if (!empty($_POST["graduation"])) {
-        array_push($search_data, "graduation_date = {$_POST["graduation"]}");
+        array_push($search_data, "graduation_date = {$db->quote($_POST["graduation"])}");
     }
     // forced searches every time
     // change if time allows
@@ -43,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     array_push($search_data, "degree_program = {$db->quote($degree)}");
     array_push($search_data, "financial_aid = {$db->quote($_POST["faid"])}");
+
 
 
     // create query
