@@ -38,11 +38,11 @@ if (basename($_SERVER['PHP_SELF']) == 'create-record.php') {
     <label class="col-form-label" for="degree">Degree</label>
     <select class="form-control" id="degree" name="degree">
         <option value="Undeclared" <?php if (isset($degree) && ($degree == "Undeclared")) echo 'selected'; ?>>Undeclared</option>
-        <option value="CBAS" <?php if (isset($degree) && ($degree == "CBAS")) echo 'selected'; ?>>CBAS - Bachelor of Applied Science in Cybersecurity</option>
-        <option value="AAS" <?php if (isset($degree) && ($degree == "AAS")) echo 'selected'; ?>>AAS - Associate in Applied Sciences</option>
-        <option value="AAT" <?php if (isset($degree) && ($degree == "AAT")) echo 'selected'; ?>>AAT - Associate in Applied Technology</option>
-        <option value="AST" <?php if (isset($degree) && ($degree == "AST")) echo 'selected'; ?>>AST - Associate of Science Transfer</option>
-        <option value="AFA" <?php if (isset($degree) && ($degree == "AFA")) echo 'selected'; ?>>AFA - Associate of Fine Arts</option>
+        <option value="CBAS" <?php if (isset($degree) && ($degree == "BAS Cybersecurity")) echo 'selected'; ?>>BAS - Cybersecurity</option>
+        <option value="AFASA" <?php if (isset($degree) && ($degree == "AFA Studio Arts")) echo 'selected'; ?>>AFA - Studio Arts</option>
+        <option value="AATWD" <?php if (isset($degree) && ($degree == "AAT Web Development")) echo 'selected'; ?>>AAT - Web Development</option>
+        <option value="AATDMA" <?php if (isset($degree) && ($degree == "AAT Digital Media Arts")) echo 'selected'; ?>>AAT - Digital Media Arts</option>
+        <option value="AATCS" <?php if (isset($degree) && ($degree == "AAT Computer Support")) echo 'selected'; ?>>AAT - Computer Support</option>
     </select>
     <br>
     <label class="col-form-label" for="gpa">GPA</label>

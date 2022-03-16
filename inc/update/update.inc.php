@@ -55,7 +55,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $gpa = floatval($_POST["gpa"]);
     }
-    $degree = $_POST["degree"];
+    if ($_POST["degree"] == "CBAS") {
+        $degree = "BAS Cybersecurity";
+    } elseif ($_POST["degree"] == "AFASA") {
+        $degree = "AFA Studio Arts";
+    } elseif ($_POST["degree"] == "AATWD") {
+        $degree = "AAT Web Development";
+    } elseif ($_POST["degree"] == "AATDMA") {
+        $degree = "AAT Digital Media Arts";
+    } elseif ($_POST["degree"] == "AATCS") {
+        $degree = "AAT Computer Support";
+    } else {
+        $degree = "Undeclared";
+    }
 }
 if (count($error_bucket) == 0) {
     // update order with no errors
