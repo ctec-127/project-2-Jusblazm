@@ -57,15 +57,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $degree = "Undeclared";
     }
+    // new optional field
+    if (!empty($_POST["graduation"])) {
+        $graduation = $_POST["graduation"];
+    } else {
+        $graduation = null;
+    }
 
     // If we have no errors than we can try and insert the data
     if (count($error_bucket) == 0) {
         // Time for some SQL
-        $sql = "INSERT INTO $db_table (first_name,last_name,email,phone,student_id,degree_program,gpa,financial_aid) ";
-        $sql .= "VALUES (:first,:last,:email,:phone,:student_id,:degree,:gpa,:faid)";
+        $sql = "INSERT INTO $db_table (first_name,last_name,email,phone,student_id,degree_program,gpa,financial_aid,graduation_date)";
+        $sql .= "VALUES (:first,:last,:email,:phone,:student_id,:degree,:gpa,:faid,:graduation)";
 
         $stmt = $db->prepare($sql);
-        $stmt->execute(["first" => $first, "last" => $last, "email" => $email, "phone" => $phone, "student_id" => $student_id, "degree" => $degree, "gpa" => $gpa, "faid" => $faid]);
+        $stmt->execute(["first" => $first, "last" => $last, "email" => $email, "phone" => $phone, "student_id" => $student_id, "degree" => $degree, "gpa" => $gpa, "faid" => $faid, "graduation" => $graduation]);
 
         if ($stmt->rowCount() == 0) {
             echo '<div class="alert alert-danger" role="alert">

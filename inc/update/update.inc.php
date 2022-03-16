@@ -13,6 +13,7 @@ $degree = null;
 $gpa = null;
 $faid = null;
 $id = null;
+$graduation = null;
 
 $error_bucket = [];
 
@@ -68,12 +69,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $degree = "Undeclared";
     }
+    // new optional field
+    if (!empty($_POST["graduation"])) {
+        $graduation = $_POST["graduation"];
+    } else {
+        $graduation = null;
+    }
 }
 if (count($error_bucket) == 0) {
     // update order with no errors
-    $sql = "UPDATE $db_table SET first_name = :first_name, last_name = :last_name, student_id = :student_id, email = :email, phone = :phone, financial_aid = :faid, gpa = :gpa, degree_program = :degree WHERE id = :id";
+    $sql = "UPDATE $db_table SET first_name = :first_name, last_name = :last_name, student_id = :student_id, email = :email, phone = :phone, financial_aid = :faid, gpa = :gpa, degree_program = :degree, graduation_date = :graduation WHERE id = :id";
     $stmt = $db->prepare($sql);
-    $stmt->execute(["first_name" => $first, "last_name" => $last, "student_id" => $student_id, "email" => $email, "phone" => $phone, "faid" => $faid, "gpa" => $gpa, "degree" => $degree, "id" => $id]);
+    $stmt->execute(["first_name" => $first, "last_name" => $last, "student_id" => $student_id, "email" => $email, "phone" => $phone, "faid" => $faid, "gpa" => $gpa, "degree" => $degree, "graduation" => $graduation, "id" => $id]);
 
     if ($stmt->rowCount() == 1) {
         header("Location: display-records.php?message=The record for has been updated for <ul><li>Student: $first $last</li><li>Student ID: $student_id</li></ul>.");
@@ -98,3 +105,4 @@ $phone = $student_records->phone;
 $degree = $student_records->degree_program;
 $gpa = $student_records->gpa;
 $faid = $student_records->financial_aid;
+$graduation = $student_records->graduation_date;
