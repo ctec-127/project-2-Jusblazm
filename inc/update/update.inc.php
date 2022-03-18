@@ -83,7 +83,7 @@ if (count($error_bucket) == 0) {
     $stmt->execute(["first_name" => $first, "last_name" => $last, "student_id" => $student_id, "email" => $email, "phone" => $phone, "faid" => $faid, "gpa" => $gpa, "degree" => $degree, "graduation" => $graduation, "id" => $id]);
 
     if ($stmt->rowCount() == 1) {
-        header("Location: display-records.php?message=The record for has been updated for <ul><li>Student: $first $last</li><li>Student ID: $student_id</li></ul>.");
+        header("Location: display-records.php?message=The record for has been updated for <ul><li>Student: $first $last</li><li>Student ID: $student_id</li></ul>");
     }
 } else {
     display_error_bucket($error_bucket);
