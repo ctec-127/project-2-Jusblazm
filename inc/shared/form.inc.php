@@ -25,7 +25,7 @@ if (basename($_SERVER['PHP_SELF']) == 'create-record.php') {
     <label class="col-form-label" for="last">Last Name</label>
     <input class="form-control" type="text" id="last" name="last" value="<?= isset($last) ? $last : null ?>">
     <br>
-    <label class="col-form-label" for="id">Student ID </label>
+    <label class="col-form-label" for="id">Student ID</label>
     <input class="form-control" type="number" id="id" name="student_id" value="<?= isset($student_id) ? $student_id : null ?>">
     <br>
     <label class="col-form-label" for="email">Email</label>
